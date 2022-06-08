@@ -33,7 +33,7 @@ class UserTile extends StatelessWidget{
           IconButton(
             color: Colors.red,
             icon: Icon(Icons.delete),
-            onPressed: () {}, 
+            onPressed: () {},  
             ),
         ]),
       ),
