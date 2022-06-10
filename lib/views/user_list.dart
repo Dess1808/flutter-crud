@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/components/user_tile.dart';
 import 'package:flutter_crud/data/dummy_users.dart';
+import 'package:flutter_crud/routes/app_routes.dart';
 import 'package:provider/provider.dart';
 
 import '../models/user.dart';
@@ -24,7 +25,10 @@ class UserList extends StatelessWidget{
           IconButton(
             icon: Icon(Icons.ac_unit_sharp),
             onPressed: () {
-              
+              //vai dar um "push" colocar a tela em cima
+              Navigator.of(context).pushNamed(
+                AppRoutes.USER_FORM
+              );
             }, 
           )
         ],
