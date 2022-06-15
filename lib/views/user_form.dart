@@ -14,11 +14,21 @@ class UserForm extends StatelessWidget {
   //map de dados de usuario
   final Map<String, String> _formData = {};
 
+  //carregando dados
+  void _loadFormatData (User user){
+    _formData['id'] = user.id;  
+    _formData['name'] = user.name;  
+    _formData['email'] = user.email;  
+    _formData['avatarUrl'] = user.avatarUrl;  
+  }
+
   @override
   Widget build(BuildContext context) {
 
     final user = ModalRoute.of(context)!.settings.arguments as User;
-    print(user.id);
+    
+    //enviando dados
+    _loadFormatData(user);
 
     return Scaffold(
       appBar: AppBar(
@@ -66,6 +76,7 @@ class UserForm extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 TextFormField(
+                  initialValue: _formData['name'],
                   //vai ter texto padrão
                   decoration: InputDecoration(labelText: 'Nome'),
 
@@ -86,11 +97,13 @@ class UserForm extends StatelessWidget {
                 ),
 
                  TextFormField(
+                  initialValue: _formData['email'],
                   decoration: InputDecoration(labelText: 'Email'),
                   onSaved: (value) => _formData['email'] = value as String,
                 ),
 
                  TextFormField(
+                  initialValue: _formData['avatarUrl'],
                   decoration: InputDecoration(labelText: 'AvatarURL'),
                   onSaved: (value) => _formData['avatarUrl'] = value as String
                 )
