@@ -16,7 +16,7 @@ class UserList extends StatelessWidget{
     //operado Xprad??
     final Users users = Provider.of(context);
 
-    final id = Random().nextDouble().toString();
+    //final id = Random().nextDouble().toString();
 
     return Scaffold(
       appBar: AppBar(
