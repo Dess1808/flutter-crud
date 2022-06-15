@@ -7,8 +7,13 @@ import '../provider/users.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 
-class UserForm extends StatelessWidget {
+class UserForm extends StatefulWidget {
 
+  @override
+  State<UserForm> createState() => _UserFormState();
+}
+
+class _UserFormState extends State<UserForm> {
   final _form = GlobalKey<FormState>();
 
   //map de dados de usuario
@@ -22,11 +27,15 @@ class UserForm extends StatelessWidget {
     _formData['avatarUrl'] = user.avatarUrl;  
   }
 
+  /*
+    infelizmente não posso implementar a dependencias fora do metodo build
+  */
+
   @override
   Widget build(BuildContext context) {
 
+    //porque não posso colocar o contexto fora??
     final user = ModalRoute.of(context)!.settings.arguments as User;
-    
     //enviando dados
     _loadFormatData(user);
 
@@ -96,13 +105,13 @@ class UserForm extends StatelessWidget {
                   onSaved: (value) => _formData['name'] = value as String,
                 ),
 
-                 TextFormField(
+                  TextFormField(
                   initialValue: _formData['email'],
                   decoration: InputDecoration(labelText: 'Email'),
                   onSaved: (value) => _formData['email'] = value as String,
                 ),
 
-                 TextFormField(
+                  TextFormField(
                   initialValue: _formData['avatarUrl'],
                   decoration: InputDecoration(labelText: 'AvatarURL'),
                   onSaved: (value) => _formData['avatarUrl'] = value as String
