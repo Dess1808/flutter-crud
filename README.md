@@ -2,4 +2,4 @@
 
 flutter crud
 
-lista de usuarios, cadastra e deleta, exemplos simples de algumas funcionalidades
+lista de usuário, cadastro, delete e alteração de usuario cadastros
