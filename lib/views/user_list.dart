@@ -16,7 +16,11 @@ class UserList extends StatelessWidget{
     //operado Xprad??
     final Users users = Provider.of(context);
 
-    //final id = Random().nextDouble().toString();
+    //user
+    //final User user;
+
+    //tem que melhorar isso aqui
+    final idRandom = Random().nextDouble().toString();
 
     return Scaffold(
       appBar: AppBar(
@@ -27,7 +31,13 @@ class UserList extends StatelessWidget{
             onPressed: () {
               //vai dar um "push" colocar a tela em cima
               Navigator.of(context).pushNamed(
-                AppRoutes.USER_FORM
+                AppRoutes.USER_FORM,
+                arguments: User(
+                  id: idRandom,
+                  name: '',
+                  email: '',
+                  avatarUrl: '',
+                )
               );
             }, 
           )
