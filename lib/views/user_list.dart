@@ -23,7 +23,7 @@ class UserList extends StatelessWidget{
         title: Text('Lista de Usuários'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.ac_unit_sharp),
+            icon: Icon(Icons.add),
             onPressed: () {
               //vai dar um "push" colocar a tela em cima
               Navigator.of(context).pushNamed(
